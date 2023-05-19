@@ -5,7 +5,7 @@ import logo from '../../../../assets/images/logo/logo.jfif'
 const Navigation = () => {
 
     return (
-        <div>
+        <div className=' py-5'>
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
