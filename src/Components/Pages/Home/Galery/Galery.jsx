@@ -25,16 +25,10 @@ const Galery = () => {
     <div className='my-20'>
       <div className='text-center'>
         <h3 className='font-bold text-4xl text-orange-700 pb-4'> <span className='border-b-2 border-orange-700'>car Gallery</span></h3>
+        <p>Our all new cars collections you can see in this photo gallery. </p>
       </div>
-      {/* <div className=" grid grid-cols-3 gap-3">
-                {images.map(image => <GalleryImg 
-                key={image.index}
-                image ={image}
-                ></GalleryImg>)}
-            </div> */}
-
       <AOSComponent>
-        <>
+        <div className='border-t-2 border-b-2 my-5 border-orange-700'>
           <Swiper
             effect={"coverflow"}
             grabCursor={true}
@@ -79,7 +73,7 @@ const Galery = () => {
               <img src={img9} />
             </SwiperSlide>
           </Swiper>
-        </>
+        </div>
       </AOSComponent>
     </div>
   );

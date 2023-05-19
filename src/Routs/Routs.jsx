@@ -43,9 +43,7 @@ const router = createBrowserRouter([
 
 const Routs = () => {
     return (
-        <div>
-
-        </div>
+      <></>
     );
 };
 
