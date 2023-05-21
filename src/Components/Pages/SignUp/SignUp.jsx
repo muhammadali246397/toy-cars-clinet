@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import background from '../../../assets/images/login/login.jpg'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const [error, setError] = useState(null);
@@ -21,7 +22,14 @@ const SignUp = () => {
         handleSignUp(email, password)
             .then(result => {
                 const user = result.user;
+                console.log(user)
                 form.reset();
+                Swal.fire(
+                    'Good job!',
+                    'Sign-Up successfull',
+                    'success'
+                  )
+
                 updatename(user, name, photo)
                     .then(result => { })
                     .catch(error => console.log(error.message))

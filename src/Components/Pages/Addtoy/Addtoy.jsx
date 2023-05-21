@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import background from '../../../assets/images/login/login.jpg'
-import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2'
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Addtoy = () => {
@@ -14,14 +14,35 @@ const Addtoy = () => {
         const selleremail = form.selleremail.value;
         const price = form.price.value;
         const rating = form.rating.value;
+        const category = form.category.value;
         const carname = form.carname.value;
         const quantity = form.quantity.value;
         const description = form.description.value;
         const photo = form.photo.value;
         const toyInfo = {
-            selleremail, sellername, price, rating, carname, quantity, description, photo
+            selleremail, sellername, price, rating, carname, quantity,category, description, photo
         }
         console.log(toyInfo)
+        fetch('http://localhost:3000/alltoys',{
+            method:'POST',
+            headers:{
+                "content-type":'application/json'
+            },
+            body:JSON.stringify(toyInfo)
+            
+        })
+        .then(res=> res.json())
+        .then(data => {
+            console.log(data)
+            if(data.insertedId){
+                Swal.fire(
+                    'Good job!',
+                    'You clicked the button!',
+                    'success'
+                  )
+                  form.reset()
+            }
+        })
 
     }
 
