@@ -5,6 +5,7 @@ import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 const Navigation = () => {
     const { users, logOut } = useContext(AuthContext)
+    console.log(users)
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -46,8 +47,8 @@ const Navigation = () => {
                 <div className="navbar-end">
                     {
                         users ? <>
-                            <div className="tooltip" data-tip="hello">
-                            <img className='w-10 h-10 rounded-full' src={users.photoURL} alt="" />
+                            <div className="tooltip" data-tip={users?.displayName}>
+                            <img className='w-10 h-10 rounded-full' src={users?.photoURL} alt="" />
                             </div>
                             
                             <button onClick={handleLogOut} className='btn btn-primary mx-10'>Sign-out</button>

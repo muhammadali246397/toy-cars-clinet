@@ -1,11 +1,10 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import AOSComponent from '../Home/Bannar/Aosb';
 
 const Alltoys = () => {
     const toys = useLoaderData()
     console.log(toys)
-   
     return (
         <div>
             <div className="overflow-x-auto w-full">
@@ -32,26 +31,22 @@ const Alltoys = () => {
                                                 <img src={toy.photo} alt="Avatar Tailwind CSS Component" />
                                             </div>
                                         </div>
-                                        <div className='w-20'>
+                                        <div className=''>
                                             <div className="font-bold">{toy.carname}</div>
                                             
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    Zemlak, Daniel and Leannon
-                                    <br />
-                                    <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
+                                 {toy.sellername}
                                 </td>
-                                <td>
-                                    Zemlak, Daniel and Leannon
-                                    <br />
-                                    <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
+                                 <td>
+                                  {toy.category}
                                 </td>
-                                <td>Purple</td>
-                                <td>Purple</td>
+                                <td>{toy.price} tk</td>
+                                <td>{toy.quantity} pis</td>
                                 <th>
-                                    <button className="btn btn-primary btn-xs">View details</button>
+                                    <Link to={`/details/${toy._id}`}><button className="btn btn-primary btn-xs">View details</button></Link>
                                 </th>
                             </tr>)
                         }
