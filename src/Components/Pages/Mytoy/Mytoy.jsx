@@ -1,19 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { FaEdit, FaTrash } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Mytoy = () => {
-   const {users} = useContext(AuthContext)
-   const [mytoy, setMytoy] = useState([])
-   console.log(mytoy)
-   const url = `http://localhost:3000/mytoys?selleremail=${users?.email}`;
-   useEffect(() => {
-    fetch(url)
-    .then(res => res.json())
-    .then(data => setMytoy(data))
-   },[])
+    const { users } = useContext(AuthContext)
+    const [mytoy, setMytoy] = useState([])
+    console.log(mytoy)
+    const url = `http://localhost:3000/mytoys?selleremail=${users?.email}`;
+    useEffect(() => {
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setMytoy(data))
+    }, [])
     return (
         <div>
-           <div className="overflow-x-auto w-full">
+            <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     {/* head */}
                     <thead>
@@ -29,7 +31,7 @@ const Mytoy = () => {
                     </thead>
                     <tbody>
                         {
-                            mytoy.map((toy,ind) => <tr key={ind}>
+                            mytoy.map((toy, ind) => <tr key={ind}>
                                 <td>
                                     <div className="flex items-center space-x-3">
                                         <div className="avatar">
@@ -39,20 +41,26 @@ const Mytoy = () => {
                                         </div>
                                         <div className=''>
                                             <div className="font-bold">{toy.carname}</div>
-                                            
+
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                 {toy.sellername}
+                                    {toy.sellername}
                                 </td>
-                                 <td>
-                                  {toy.category}
+                                <td>
+                                    {toy.category}
                                 </td>
                                 <td>{toy.price} tk</td>
                                 <td>{toy.quantity} pis</td>
                                 <th>
-                                   <button className="btn btn-primary btn-xs"></button>
+                                    
+                                    <Link to={`/update/${toy._id}`}><button className="btn btn-circle btn-xs bg-white text-orange-700 border-none ">
+                                       <FaEdit></FaEdit>
+                                    </button></Link>
+                                    <button className="btn btn-circle btn-xs  bg-white text-orange-700 border-none mx-5">
+                                        <FaTrash></FaTrash>
+                                    </button>
                                 </th>
                             </tr>)
                         }
