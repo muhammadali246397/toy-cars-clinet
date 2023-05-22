@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Mytoy = () => {
     const { users } = useContext(AuthContext)
@@ -13,6 +14,40 @@ const Mytoy = () => {
             .then(res => res.json())
             .then(data => setMytoy(data))
     }, [])
+    const handleDelete = id => {
+
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to detele this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:3000/mytoy/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Delete successfull',
+                                'success'
+                            )
+                            const remaining = mytoy.filter(toy => toy._id !== id)
+                            setMytoy(remaining)
+                        }
+                    })
+            }
+        })
+
+
+    }
+
     return (
         <div>
             <div className="overflow-x-auto w-full">
@@ -54,11 +89,11 @@ const Mytoy = () => {
                                 <td>{toy.price} tk</td>
                                 <td>{toy.quantity} pis</td>
                                 <th>
-                                    
+
                                     <Link to={`/update/${toy._id}`}><button className="btn btn-circle btn-xs bg-white text-orange-700 border-none ">
-                                       <FaEdit></FaEdit>
+                                        <FaEdit></FaEdit>
                                     </button></Link>
-                                    <button className="btn btn-circle btn-xs  bg-white text-orange-700 border-none mx-5">
+                                    <button onClick={() => handleDelete(`${toy._id}`)} className="btn btn-circle btn-xs  bg-white text-orange-700 border-none mx-5">
                                         <FaTrash></FaTrash>
                                     </button>
                                 </th>
