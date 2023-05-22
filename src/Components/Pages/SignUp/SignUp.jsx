@@ -1,12 +1,13 @@
 import React, { useContext, useState } from 'react';
 import background from '../../../assets/images/login/login.jpg'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const [error, setError] = useState(null);
     const { handleSignUp, updatename } = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const signUp = event => {
         event.preventDefault();
@@ -29,6 +30,7 @@ const SignUp = () => {
                     'Sign-Up successfull',
                     'success'
                   )
+                  navigate('/')
 
                 updatename(user, name, photo)
                     .then(result => { })

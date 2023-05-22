@@ -1,12 +1,17 @@
 import React, { useContext, useState } from 'react';
 import background from '../../../assets/images/login/login.jpg'
 import { FaUserCircle } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const {logInGoogle,logInEmailPass} = useContext(AuthContext)
     const [error,setError] = useState(null)
+    const location = useLocation()
+    const navigate = useNavigate()
+    console.log(location)
+    const from = location.state?.from?.pathname || '/';
 
     const googlesignin = () => {
         logInGoogle()
@@ -28,8 +33,13 @@ const Login = () => {
         console.log(email, password)
         logInEmailPass(email,password)
         .then(result => {
-            alert('login successfully')
+            Swal.fire(
+                'loged-in!',
+                'Login successfull',
+                'success'
+            )
             form.reset();
+            navigate(from)
         })
         .catch(error => {
             const err = error.message;

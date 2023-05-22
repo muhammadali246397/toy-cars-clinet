@@ -5,7 +5,6 @@ import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 const Navigation = () => {
     const { users, logOut } = useContext(AuthContext)
-    console.log(users)
     const handleLogOut = () => {
         logOut()
             .then(() => { })
