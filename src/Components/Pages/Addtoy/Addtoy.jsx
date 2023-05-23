@@ -23,7 +23,7 @@ const Addtoy = () => {
             selleremail, sellername, price, rating, carname, quantity,category, description, photo
         }
         console.log(toyInfo)
-        fetch('http://localhost:3000/alltoys',{
+        fetch('https://assignment-eleven-server-opal.vercel.app/alltoys',{
             method:'POST',
             headers:{
                 "content-type":'application/json'

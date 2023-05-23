@@ -10,7 +10,7 @@ const Category = () => {
     const [categorycar, setCategorycar] = useState('sports car')
 
     useEffect(() => {
-        fetch(`http://localhost:3000/toys/${categorycar}`)
+        fetch(`https://assignment-eleven-server-opal.vercel.app/toys/${categorycar}`)
             .then(res => res.json())
             .then(data => setCars(data))
     }, [categorycar])

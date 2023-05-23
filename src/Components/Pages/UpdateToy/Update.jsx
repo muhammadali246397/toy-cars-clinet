@@ -16,7 +16,7 @@ const Update = () => {
             const description = form.description.value;
             const updateIfnformation={price,quantity,description}
             console.log(updateIfnformation)
-            fetch(`http://localhost:3000/mytoys/${previusdata._id}`,{
+            fetch(`https://assignment-eleven-server-opal.vercel.app/mytoys/${previusdata._id}`,{
                 method:'PUT',
                 headers:{
                     'content-type':'application/json'

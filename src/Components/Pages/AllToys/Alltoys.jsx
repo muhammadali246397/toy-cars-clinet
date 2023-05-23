@@ -8,7 +8,7 @@ const Alltoys = () => {
     const [searchcar, setSearchcar] = useState("")
     console.log(toys)
     const search = () => {
-        fetch(`http://localhost:3000/searchcar/${searchcar}`)
+        fetch(`https://assignment-eleven-server-opal.vercel.app/searchcar/${searchcar}`)
         .then(res => res.json())
         .then(data => setAlltoy(data))
     }

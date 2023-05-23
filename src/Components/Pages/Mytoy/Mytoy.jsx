@@ -8,7 +8,7 @@ const Mytoy = () => {
     const { users } = useContext(AuthContext)
     const [mytoy, setMytoy] = useState([])
     console.log(mytoy)
-    const url = `http://localhost:3000/mytoys?selleremail=${users?.email}`;
+    const url = `https://assignment-eleven-server-opal.vercel.app/mytoys?selleremail=${users?.email}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -27,7 +27,7 @@ const Mytoy = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/mytoy/${id}`, {
+                fetch(`https://assignment-eleven-server-opal.vercel.app/mytoy/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

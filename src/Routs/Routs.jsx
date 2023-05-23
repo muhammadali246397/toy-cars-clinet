@@ -14,12 +14,14 @@ import Addtoy from '../Components/Pages/Addtoy/Addtoy';
 import Details from '../Components/Pages/SingleToyDetails/Details';
 import Update from '../Components/Pages/UpdateToy/Update';
 import PrivateRoute from './PrivateRoute';
+import Error from '../Components/Pages/ErrorPage/Error';
 
 
 const router = createBrowserRouter([
     {
       path: "/",
       element:<Main></Main>,
+      errorElement:<Error></Error>,
       children:[
         {
             path:'/',
@@ -28,7 +30,7 @@ const router = createBrowserRouter([
         {
             path:'/alltoys',
             element:<Alltoys></Alltoys>,
-            loader:() => fetch('http://localhost:3000/alltoys')
+            loader:() => fetch('https://assignment-eleven-server-opal.vercel.app/alltoys')
         },
         {
             path:'/blog',
@@ -54,12 +56,12 @@ const router = createBrowserRouter([
         {
           path:'/details/:id',
           element:<PrivateRoute><Details></Details></PrivateRoute>,
-          loader:({params}) => fetch(`http://localhost:3000/alltoys/${params.id}`)
+          loader:({params}) => fetch(`https://assignment-eleven-server-opal.vercel.app/alltoys/${params.id}`)
         },
         {
           path:'/update/:id',
           element:<Update></Update>,
-          loader:({params}) => fetch(`http://localhost:3000/mytoys/${params.id}`)
+          loader:({params}) => fetch(`https://assignment-eleven-server-opal.vercel.app/mytoys/${params.id}`)
 
         }
 
