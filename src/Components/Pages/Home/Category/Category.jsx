@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import AOSComponent from '../Bannar/Aosb';
+import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 const Category = () => {
+    const {users} = useContext(AuthContext)
     const [cars, setCars] = useState([]);
     const [categorycar, setCategorycar] = useState('sports car')
 
@@ -15,6 +17,11 @@ const Category = () => {
 
     const handleCategory = data => {
         setCategorycar(data)
+    }
+    const viewDetails = () => {
+        if(!users){
+            alert('can not show details without login')
+        }
     }
     return (
         <div className=" my-20">
@@ -39,10 +46,11 @@ const Category = () => {
                                         cars?.map((car,ind) =>  <div key={ind} className="card w-96 bg-base-100 shadow-xl">
                                         <figure><img src={car.photo}alt="Shoes" /></figure>
                                         <div className="card-body">
-                                            <h2 className="card-title">{car.carname}</h2>
-                                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                                            <h2 className="card-title text-orange-700">Name : {car.carname}</h2>
+                                            <p>Price : {car.price}</p>
+                                            <p>Ratings : {car.rating}</p>
                                             <div className="card-actions justify-end">
-                                                <button className="btn btn-primary">Buy Now</button>
+                                                <button onClick={viewDetails} className="btn btn-primary">View Details</button>
                                             </div>
                                         </div>
                                     </div> )
@@ -58,10 +66,11 @@ const Category = () => {
                                         cars?.map((car,ind) =>  <div key={ind} className="card w-96 bg-base-100 shadow-xl">
                                         <figure><img src={car.photo}alt="Shoes" /></figure>
                                         <div className="card-body">
-                                            <h2 className="card-title">{car.carname}</h2>
-                                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                                            <h2 className="card-title text-orange-700">Name :{ car.carname}</h2>
+                                            <p>Price : {car.price}</p>
+                                            <p>Ratings : {car.rating}</p>
                                             <div className="card-actions justify-end">
-                                                <button className="btn btn-primary">Buy Now</button>
+                                                <button onClick={viewDetails}  className="btn btn-primary">View Details</button>
                                             </div>
                                         </div>
                                     </div> )
@@ -77,10 +86,11 @@ const Category = () => {
                                         cars?.map((car,ind) =>  <div key={ind} className="card w-96 bg-base-100 shadow-xl">
                                         <figure><img src={car.photo}alt="Shoes" /></figure>
                                         <div className="card-body">
-                                            <h2 className="card-title">{car.carname}</h2>
-                                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                                            <h2 className="card-title text-orange-700">Name : {car.carname}</h2>
+                                            <p>Price : {car.price}</p>
+                                            <p>Ratings : {car.rating}</p>
                                             <div className="card-actions justify-end">
-                                                <button className="btn btn-primary">Buy Now</button>
+                                                <button onClick={viewDetails}  className="btn btn-primary">View Details</button>
                                             </div>
                                         </div>
                                     </div> )

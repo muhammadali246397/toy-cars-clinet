@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import AOSComponent from '../Home/Bannar/Aosb';
 
 const Alltoys = () => {
     const toys = useLoaderData()
+    const [alltoy, setAlltoy] = useState(toys)
+    const [searchcar, setSearchcar] = useState("")
     console.log(toys)
+    const search = () => {
+        fetch(`http://localhost:3000/searchcar/${searchcar}`)
+        .then(res => res.json())
+        .then(data => setAlltoy(data))
+    }
     return (
         <div>
+            <div className='text-center my-10'>
+                <input onChange={(e) => setSearchcar(e.target.value)} className='p-2' type="text" name="" placeholder='Search by car name' id="" />
+                <button onClick={search} className='bg-orange-700 p-2 text-white'>Search</button>
+            </div>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     {/* head */}
@@ -23,7 +34,7 @@ const Alltoys = () => {
                     </thead>
                     <tbody>
                         {
-                            toys.map((toy,ind) => <tr key={ind}>
+                            alltoy.map((toy,ind) => <tr key={ind}>
                                 <td>
                                     <div className="flex items-center space-x-3">
                                         <div className="avatar">

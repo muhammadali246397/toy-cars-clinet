@@ -3,10 +3,12 @@ import img1 from '../../../../assets/images/feature/Free-shipping.svg'
 import img2 from '../../../../assets/images/feature/Easy-payment.svg'
 import img3 from '../../../../assets/images/feature/easy-return.svg'
 import img4 from '../../../../assets/images/feature/support.svg'
+import AOSComponent from '../Bannar/Aosb';
 
 const Feature = () => {
     return (
-        <div className='grid md:grid-cols-4 gap-5 my-20'>
+       <AOSComponent>
+         <div className='grid md:grid-cols-4 gap-5 my-20'>
             <div className='flex space-x-4 items-center p-4'>
                 <img className='w-28' src={img1} alt="" />
                 <div className=''>
@@ -37,6 +39,7 @@ const Feature = () => {
             
             </div>
         </div>
+       </AOSComponent>
     );
 };
 
