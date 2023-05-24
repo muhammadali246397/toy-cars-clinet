@@ -9,7 +9,7 @@ const BestSale = () => {
     return (
     <div>
           <AOSComponent>
-          <div className='grid md:grid-cols-2'>
+          <div className='grid md:grid-cols-2 p-4'>
             
             <img className='' src={leftimg} alt="" />
             <div className='my-20'>

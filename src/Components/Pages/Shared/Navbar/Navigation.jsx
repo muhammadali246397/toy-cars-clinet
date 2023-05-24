@@ -23,6 +23,10 @@ const Navigation = () => {
                             <Link className='mx-3 text-orange-600 font-semibold' to="/">Home</Link>
                             <Link className='mx-3 text-orange-600 font-semibold' to="/alltoys">All Toys</Link>
                             <Link className='mx-3 text-orange-600 font-semibold' to="/blog">Blogs</Link>
+                            {users? <>
+                            <Link className='mx-3 text-orange-600 font-semibold' to="/mytoy">My-Toy</Link>
+                            <Link className='mx-3 text-orange-600 font-semibold' to="/addtoy">Add-Toy</Link>
+                        </>:''}
                         </ul>
                     </div>
                     <Link className='mx-3 ' to='/'>
