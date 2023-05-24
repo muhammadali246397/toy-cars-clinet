@@ -35,11 +35,16 @@ const Blog = () => {
                 </div>
             </div>
             <div className='my-10 bg-orange-100 p-4'>
-                    <h2 className='font-semibold text-2xl text-orange-700 mb-5'>3. What is express js? What is Nest JS ?</h2>
-                    <p className='font-semibold'><span className='font-bold text-orange-700'>Express js :</span>  Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.</p>
-                    <p className='font-semibold'><span className='font-bold text-orange-700'>Nest js :</span>Nest. js is one of the fastest-growing Node. js frameworks for building efficient, scalable, and enterprise-grade backend applications using Node. js. It is known for producing highly testable, maintainable, and scalable applications using modern JavaScript and TypeScript.</p>
-                    <p>we can store the access token and refresh token browser Local storage or HTTP only cookee </p>
-                </div>
+                <h2 className='font-semibold text-2xl text-orange-700 mb-5'>3. What is express js? What is Nest JS ?</h2>
+                <p className='font-semibold'><span className='font-bold text-orange-700'>Express js :</span>  Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.</p>
+                <p className='font-semibold'><span className='font-bold text-orange-700'>Nest js :</span>Nest. js is one of the fastest-growing Node. js frameworks for building efficient, scalable, and enterprise-grade backend applications using Node. js. It is known for producing highly testable, maintainable, and scalable applications using modern JavaScript and TypeScript.</p>
+             
+            </div>
+            <div className='my-10 bg-orange-100 p-4'>
+                <h2 className='font-semibold text-2xl text-orange-700 mb-5'>4.What is MongoDB aggregate and how does it work?</h2>
+                <p className='font-semibold'><span className='font-bold text-orange-700'>MongoDB aggregate :</span>  Aggregation is a way of processing a large number of documents in a collection by means of passing them through different stages. The stages make up what is known as a pipeline. The stages in a pipeline can filter, sort, group, reshape and modify documents that pass through the pipeline.</p>
+               
+            </div>
         </div>
     );
 };
