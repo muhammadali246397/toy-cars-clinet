@@ -13,7 +13,7 @@ const Alltoys = () => {
         .then(data => setAlltoy(data))
     }
     return (
-        <div>
+        <div className='my-20'>
             <div className='text-center my-10'>
                 <input onChange={(e) => setSearchcar(e.target.value)} className='p-2' type="text" name="" placeholder='Search by car name' id="" />
                 <button onClick={search} className='bg-orange-700 p-2 text-white'>Search</button>

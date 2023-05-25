@@ -49,7 +49,7 @@ const Mytoy = () => {
     }
 
     return (
-        <div>
+        <div className='my-20'>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     {/* head */}
