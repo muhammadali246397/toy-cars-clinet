@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import background from '../../../assets/images/login/login.jpg'
-import { FaUserCircle } from "react-icons/fa";
+import { FaGoogle, FaUserCircle } from "react-icons/fa";
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
@@ -75,6 +75,9 @@ const Login = () => {
                         </div>
                         <div className="form-control mt-6">
                             <input type="submit" value='Login' className='btn btn-primary' />
+                        </div>
+                        <div className="text-center">
+                        <button onClick={googlesignin} className='btn btn-circle btn-outline text-white mt-5 border-white'><FaGoogle></FaGoogle></button>
                         </div>
                     </form>
 

@@ -40,7 +40,7 @@ const Category = () => {
 
                         <TabPanel>
                             <AOSComponent>
-                                <div style={{ justifyContent: 'space-evenly' }} className='flex mt-10'>
+                                <div style={{ justifyContent: 'space-evenly' }} className='md:flex mt-10'>
 
                                     {
                                         cars?.map((car,ind) =>  <div key={ind} className="card w-96 bg-base-100 shadow-xl">
