@@ -1,20 +1,26 @@
 import React from 'react';
-import bannar from '../../../../assets/images/bannar/pexels-photo-6130568.jpeg'
+import bannar from '../../../../assets/images/bannar/bannr.avif'
+import logo from '../../../../assets/images/logo/logo.jfif'
 import AOSComponent from './Aosb';
 
 
 const Bannar = () => {
   return (
     <AOSComponent animationDuration={500} >
-      <div className="hero min-h-screen mt-10" style={{ backgroundImage: `url(${bannar})` }}>
-        <div className="hero-overlay bg-opacity-60"></div>
-        <div className="hero-content text-center text-neutral-content">
-          <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-            <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-            <button className="btn btn-primary">Get Started</button>
+      <div className="hero min-h-screen bg-white mt-10">
+        <div className='md:flex justify-around items-center'>
+          <img className='md:w-1/2' src={bannar} alt="" />
+          <div>
+            <div className="flex items-center space-x-4 sm:ms-4">
+              <img className='w-20' src={logo} alt="" />
+              <span className='font-bold text-orange-600 inline'>Toy <span className='text-black'>Cars</span> </span>
+            </div>
+            <h1 className='font-bold text-8xl text-center'><span className='text-orange-700 border-b-4'>BABY TOYS</span></h1>
+            <p className='text-5xl mt-4 text-center'>CHILDREN'S ACTIVITIES</p>
           </div>
         </div>
+
+
       </div>
     </AOSComponent>
   );
